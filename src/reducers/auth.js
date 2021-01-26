@@ -28,26 +28,20 @@ function authReducer(state = initialState, action) {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload
+        user: payload,
+        role: payload.role,
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       localStorage.setItem('token',payload.token)
       return {
         ...state,
-        ...payload,// We need to why this works
+        token: payload.token,// We need to why this works
         isAuthenticated: true,
         loading: false,
-        user: payload
+  
       };
-    case ACCOUNT_DELETED:
-      return {
-        ...state,
-        token: null,
-        isAuthenticated: false,
-        loading: false,
-        user: null
-      };
+
     case AUTH_ERROR:
     case LOGOUT:
       localStorage.removeItem('token')
@@ -56,7 +50,8 @@ function authReducer(state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null
+        user: null,
+        role: null,
       };
     default:
       return state;
