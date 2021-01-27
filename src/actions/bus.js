@@ -9,6 +9,8 @@ import {
   ADD_BUS_ERROR,
   GET_ALL_BUSES,
   GET_ALL_BUSES_ERROR,
+  GET_BUS_BY_ID,
+  GET_BUS_BY_ID_ERROR,
 } from './types';
 
 // find bus
@@ -19,7 +21,7 @@ export const findBus = formData => async dispatch => {
     },
   };
   try {
-    console.log('findBus action')
+    console.log('findBus action');
     const res = await axios.post('api/bus/findBus', formData, config);
     // const res = { data: 'hi' };
 
@@ -40,8 +42,8 @@ export const addBus = formData => async dispatch => {
       'Content-Type': 'application/json',
     },
   };
-  const name=formData.source+' '+formData.destination+' '+'Bus';
-  formData.name=name;
+  const name = formData.source + ' ' + formData.destination + ' ' + 'Bus';
+  formData.name = name;
   try {
     //console.log(formData)
     const res = await axios.post('api/bus/addBus', formData, config);
@@ -59,9 +61,8 @@ export const addBus = formData => async dispatch => {
 };
 // GET ALL BUSES
 export const getAllBuses = () => async dispatch => {
-  
   try {
-    console.log('getAll buses action')
+    console.log('getAll buses action');
     const res = await axios.get('api/bus/getAllBuses');
     // const res = { data: 'hi' };
     console.log(res.data);
@@ -72,6 +73,31 @@ export const getAllBuses = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: GET_ALL_BUSES_ERROR,
+    });
+  }
+};
+
+// GET Bus by Id
+export const getBusById = (id) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const body = { id: id };
+    console.log(body)
+    console.log('getBusById action');
+    const res = await axios.get(`/api/bus/getBusById/${id}`);
+    // const res = { data: 'hi' };
+    console.log(res.data);
+    dispatch({
+      type: GET_BUS_BY_ID,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_BUS_BY_ID_ERROR,
     });
   }
 };

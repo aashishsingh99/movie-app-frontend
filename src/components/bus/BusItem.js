@@ -14,6 +14,9 @@ const BusItem = ({
         <p>
           {bus.startTime} {bus.reachTime}
         </p>
+        <Link to={`/buses/${bus._id}`} className='btn btn-primary'>
+          View Bus
+        </Link>
        
       </div>
       
