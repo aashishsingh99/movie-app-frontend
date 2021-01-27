@@ -1,39 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './bus.css';
+import Modal from './Modal';
 
-const ViewSeats = ({ seats,busId,bookBus }) => {
+const ViewSeats = ({ bus, bookBus, role }) => {
   // Just for now show which are booked and which are not booked
+  const busId = bus._id;
+  const seats = bus.seats;
+  const [modal, setModal] = useState({ isModalOpen: false, seatNumber: 0 });
 
-  const book = ({ seatNumber }) => {
-    console.log('Book the bus', seatNumber);
-    // action for booking the bus
-    console.log(busId)
-    bookBus(seatNumber,busId);
+  const toggleModal = () => {
+    setModal({  isModalOpen: !modal.isModalOpen ,seatNumber:0});
   };
+
+  const handleClickAvailable = seatNumber => {
+    if (role === 'user') {
+      // book the bus
+      console.log('hi');
+    setModal({  isModalOpen: !modal.isModalOpen,seatNumber: seatNumber });
+      
+    }
+  };
+
   return (
     <div className='tableContainer'>
+      {modal.isModalOpen && (
+        <Modal
+          onRequestClose={toggleModal}
+          seatNumber={modal.seatNumber}
+          bus={bus}
+          bookBus={bookBus}
+        />
+      )}
       <h2> Hi </h2>
       <table className='grid'>
         <tbody>
           <tr>
             {seats.map((seat, seatNumber) => {
-                if(seat===null)
-                {
-                    return <td className='available' onClick={()=> book({ seatNumber })}> 
+              if (seat === null) {
+                return (
+                  <td
+                    className='available'
+                    onClick={() => handleClickAvailable(seatNumber)}
+                  >
                     {seatNumber}
-                    </td>
-                }
-                else{
-                    return <td className='reserved' onClick={()=> console.log('already booked')}> 
+                    <br />
+                  </td>
+                );
+              } else {
+                return (
+                  <td className='reserved'>
+                    {role === 'admin' && seats[seatNumber].name}
+                    <br />
+
                     {seatNumber}
-                    </td>
-                }
+                    <br />
+                  </td>
+                );
+              }
             })}
           </tr>
         </tbody>
       </table>
-      
     </div>
   );
 };

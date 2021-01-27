@@ -19,14 +19,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const UserLinks = (
     <ul>
       <li>
-        <a href='/profiles'>Find People</a>
-      </li>
-      <li>
-        <a href='/posts'>
-          <span> Feed </span>
-        </a>
-      </li>
-      <li>
         <a onClick={logout} href='#!'>
           <i className='fas fa-sign-out-alt'></i>
           {'  '}
@@ -36,10 +28,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     </ul>
   );
   return (
-    <nav className='navbar bg-dark'>
+    <nav className='navbar bg-dark' id="nav-head">
       <h1>
         <Link to='/'>
-          <i></i> HyperSocial
+          <i></i> Bus Booking
         </Link>
       </h1>
       {!loading && (

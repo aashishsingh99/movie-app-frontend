@@ -5,6 +5,7 @@ import ViewSeats from './ViewSeats';
 import Booking from './Booking';
 import './bus.css';
 const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
+  
   return (
     <Fragment>
       {bus === null ? (
@@ -16,7 +17,7 @@ const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
           <Link to='/buses' className='btn btn-light'>
             Back To buses
           </Link>
-          <ViewSeats seats={bus.seats} busId={bus._id} bookBus={bookBus} />
+          <ViewSeats bus={bus} bookBus={bookBus} role={role}/>
           {role === 'admin' ? (
             <Fragment >
               <h3>Hey Do you want to Reset this bus??? </h3>

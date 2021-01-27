@@ -9,7 +9,7 @@ import Landing from './containers/layout/Landing';
 import Login from './containers/auth/Login';
 import Register from './containers/auth/Register';
 import PrivateRoute from './containers/routing/PrivateRoute';
-
+import './components/busPage/modal.css'
 import Dashboard from './containers/dashboard/Dashboard';
 
 import './App.css';

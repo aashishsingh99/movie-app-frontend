@@ -1,30 +1,30 @@
 
 .tableContainer {
-  width: 550px;
+  width: 450px;
   margin: auto;
 }
-/* (
-              <td
-                className={seat === null ? 'available' : 'reserved'}
-                onClick={seat === null ? () => book({ seatNumber }) : {}}
-              >
-                {seatNumber}{' '}
-              </td>
-            ) */
+
 .grid td {
   width: 100px;
-  height: 50px;
+  height: 150px;
   padding-bottom: 50px ;
-  padding-top: 50px ;
+  padding-top: 10px ;
   border: 2px solid orange;
   text-align: center;
-  float: left;
+  float: right;
   margin: 5px;
 }
 
 .grid td:hover {
   opacity: .7;
   cursor: pointer;
+}
+
+.available {
+  background: chocolate;
+  color: #333;
+  display: inline-block;
+
 }
 
 .reserved {
@@ -41,7 +41,4 @@
   content: 'AVAILABLE'
 }
 
-.available {
-  color: #333;
-}
 
