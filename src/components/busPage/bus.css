@@ -21,14 +21,14 @@
 }
 
 .available {
-  background: chocolate;
+  background: rgb(212, 231, 127);
   color: #333;
   display: inline-block;
 
 }
 
 .reserved {
-  background: orange;
+  background: rgb(253, 172, 22);
   color: #fff;
   display: inline-block;
 }

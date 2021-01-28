@@ -12,7 +12,7 @@ const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
         <h4> Loading... </h4>
       ) : (
         <Fragment>
-          <h2> {bus.name} </h2>
+          <h1> {bus.name} </h1>
 
           <Link to='/buses' className='btn btn-light'>
             Back To buses

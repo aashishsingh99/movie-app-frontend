@@ -32,7 +32,7 @@ const ViewSeats = ({ bus, bookBus, role }) => {
           bookBus={bookBus}
         />
       )}
-      <h2> Hi </h2>
+      <h2> Click on On the Available seat to Book!!! </h2>
       <table className='grid'>
         <tbody>
           <tr>

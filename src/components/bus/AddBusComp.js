@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const AddBus = ({  formData,onChange,onSubmit }) => {
   
-  const { source,destination,startTime,reachTime,date} = formData;
+  const { source,destination,startTime,reachTime,date,fare} = formData;
    
  
 
@@ -52,10 +52,19 @@ const AddBus = ({  formData,onChange,onSubmit }) => {
           </div>
           <div className='form-group'>
             <input
-              type='text'
-              placeholder='Date'
+              type='date'
+              placeholder='DD/MM/YYYY'
               name='date'
               value={date}
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='number'
+              placeholder='Price per seat'
+              name='fare'
+              value={fare}
               onChange={onChange}
             />
           </div>

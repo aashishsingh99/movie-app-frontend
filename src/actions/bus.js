@@ -21,7 +21,7 @@ export const findBus = formData => async dispatch => {
     },
   };
   try {
-    console.log('findBus action');
+    console.log('findBus action',formData.date);
     const res = await axios.post('api/bus/findBus', formData, config);
     // const res = { data: 'hi' };
 
@@ -44,6 +44,10 @@ export const addBus = formData => async dispatch => {
   };
   const name = formData.source + ' ' + formData.destination + ' ' + 'Bus';
   formData.name = name;
+  console.log(formData.date)
+  const newDate=(formData.date).toString();
+  formData.date=newDate;
+  console.log(newDate)
   try {
     //console.log(formData)
     const res = await axios.post('api/bus/addBus', formData, config);

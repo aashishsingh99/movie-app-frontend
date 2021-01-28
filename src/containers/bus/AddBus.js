@@ -14,6 +14,7 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
     reachTime: '',
     date: '',
     redirectToNewPage: false,
+    fare:0,
   });
 
   if (formData.redirectToNewPage) {
@@ -24,6 +25,7 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
+    
     await addBus(formData);
     console.log('hi');
     // return <Redirect to='/dashboard' />;
