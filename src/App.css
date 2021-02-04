@@ -1,12 +1,120 @@
+.ilike-blue-container {
+  @extend .pink, .lighten-4;
+}
+   
 /* Global Styles */
 :root {
-  --primary-color: #38ade4;
+  --primary-color: #000000;
   --dark-color: black;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
+.first_slide {
+  opacity: 0.3;
+  background: url('./img/busImg2.jpg') no-repeat center center/cover;
+}
+.carasouel-container{
+  
+  width:80%;
+  padding-top: 12%;
+  display: flex;
+  flex-direction: column;
+ 
+}
+h2.banner {
+  font-family: Georgia;
+  font-size: 2em;
+  letter-spacing: -2px;
+  /* border-bottom: 2px solid black; */
+  text-transform: uppercase;
+  margin-bottom: 0%;
+}
+.card-action .adminLinks{
+  color: black;
+}
+.busPage{
+ 
+  background-color: white;
+ 
+}
+.busName{
+  margin-top: 0%;
+  font-size: 2rem;
+  margin-bottom: 0%;
+}
 
+.card-panel1 {
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 24px;
+    margin: .5rem 0 1rem 0;
+    border-color: black;
+    border-radius: 2px;
+
+    background-color: #fff;
+    width: 400px;
+}
+.card-panel2{
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 14px;
+    margin: .5rem 0 1rem 0;
+    border-color: black;
+    border-radius: 2px;
+   
+    background-color: #fff;
+    width: 500px;
+}
+
+.card-panel3{
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 14px;
+    margin: .5rem 0 1rem 0;
+    border-color: black;
+    border-radius: 2px;
+   
+    background-color: #fff;
+    width: 800px;
+}
+
+.busPageContainer{
+  color: black;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+.myDiv {
+  all:none;
+  position: relative;
+  z-index: 5;
+  height: 250px;
+  width: 400px;
+  color: rgb(0, 0, 0);
+  font-size: 400%;
+  
+    
+  padding-left: 16%;
+}
+
+.myDiv .bg2 {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url('./img/bus-horizontal.png') no-repeat center center/cover;
+  opacity: 0.4;
+    width: 100%;
+    height: 100%;
+}
+
+.center_card {
+  justify-content: center;
+}
+.busPageNav {
+  padding-left: 50%;
+  padding-top: 20%;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,7 +125,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: url('./img/bus.jpg') no-repeat center center/cover;
+  background: url('./img/cream_pixels.png') ;
   color: #1d1105;
   text-align: center;
 }
@@ -42,7 +150,7 @@ img {
   /* align-content: flex-end; */
   margin: auto;
   overflow: hidden;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   margin-top: 6rem;
   margin-bottom: 3rem;
 }
@@ -55,6 +163,8 @@ img {
 }
 
 .large {
+  margin-top: 0%;
+  width:200px;
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -240,8 +350,14 @@ img {
 
 /* Forms */
 
+.form{
+ 
+  
+}
 .form .form-group {
-  margin: 1.2rem 0;
+  margin: 0;
+  
+
 }
 
 .form .form-text {
@@ -261,65 +377,32 @@ img {
 
   padding: 0.4rem;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  width: 70%;
 }
+
 
 .form input[type='submit'],
 button {
+  /* display: block; */
   font: inherit;
 }
 
-.form .social-input {
-  display: flex;
-}
-
-.form .social-input i {
-  padding: 0.5rem;
-  width: 4rem;
-}
-
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
-}
-
-.table th,
-.table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-.table th {
-  background: var(--light-color);
-}
 
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.7rem ;
-  padding-bottom:0.7rem;
-padding-left: 15rem;
-padding-right: 15rem;
+  padding-top: 1.7rem;
+  padding-bottom: 0.7rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
-  
 }
 
 .navbar ul {
@@ -331,9 +414,12 @@ padding-right: 15rem;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
-
+.ilike-blue-container {
+  @extend .blue, .lighten-4;
+}
+   
 .navbar a:hover {
-  color: var(--primary-color);
+  color: teal;
 }
 
 .navbar .welcome span {
@@ -536,7 +622,6 @@ padding-right: 15rem;
   }
 
   .navbar h1 {
-    margin-bottom: 1rem;
   }
 
   .navbar .welcome {
@@ -587,4 +672,37 @@ padding-right: 15rem;
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+/* Inline form */
+/* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Add some margins for each label */
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+/* Style the input fields */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+/* Style the submit button */
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
 }

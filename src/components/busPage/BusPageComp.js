@@ -1,34 +1,30 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import {Row,Col} from 'react-materialize'
 import ViewSeats from './ViewSeats';
-import Booking from './Booking';
+import BusPageNav from './BusPageNav'
 import './bus.css';
 const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
   
   return (
-    <Fragment>
+    <Fragment >
+      
       {bus === null ? (
         <h4> Loading... </h4>
       ) : (
         <Fragment>
-          <h1> {bus.name} </h1>
-
-          <Link to='/buses' className='btn btn-light'>
-            Back To buses
-          </Link>
+          
+        <div className="busPageContainer">
+          <Row>
+            <Col l={4}>
           <ViewSeats bus={bus} bookBus={bookBus} role={role}/>
-          {role === 'admin' ? (
-            <Fragment >
-              <h3>Hey Do you want to Reset this bus??? </h3>
-              <button onClick={()=>{resetBus(bus._id)}}> Reset </button>
-            </Fragment>
-          ) : (
-            <Fragment>
-              {' '}
-              <Booking seats={bus.seats} id={user._id} />{' '}
-            </Fragment>
-          )}
+          </Col>
+          <Col l={8}>
+          <BusPageNav id={user._id}seats={bus.seats} bus={bus}role={role} resetBus={resetBus} /> 
+          </Col>
+          </Row>
+          </div>
         </Fragment>
       )}
     </Fragment>

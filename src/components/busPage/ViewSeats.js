@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import './bus.css';
-import Modal from './Modal';
-
+import ModalBooking from './ModalBooking';
+import ModalAdmin from './ModalAdmin'
+import {Col,Icon} from 'react-materialize'
 const ViewSeats = ({ bus, bookBus, role }) => {
   // Just for now show which are booked and which are not booked
   const busId = bus._id;
@@ -21,18 +22,38 @@ const ViewSeats = ({ bus, bookBus, role }) => {
       
     }
   };
+  const handleClickReserved = seatNumber => {
+    if (role === 'admin') {
+     
+    setModal({  isModalOpen: !modal.isModalOpen,seatNumber: seatNumber });
+      
+    }
+  };
 
   return (
+    <Fragment>
+      <div className="card horizantal busPage">
+       
+    <h1 className='busName' >  <Icon> directions_bus
+</Icon><span>{"  "}</span>{bus.name} </h1>
+    </div>
     <div className='tableContainer'>
-      {modal.isModalOpen && (
-        <Modal
+      {modal.isModalOpen && role==='user' && (
+        <ModalBooking
           onRequestClose={toggleModal}
           seatNumber={modal.seatNumber}
           bus={bus}
           bookBus={bookBus}
         />
       )}
-      <h2> Click on On the Available seat to Book!!! </h2>
+      {modal.isModalOpen && role==='admin' && (
+        <ModalAdmin
+          onRequestClose={toggleModal}
+          seatNumber={modal.seatNumber}
+          bus={bus}
+          details={seats[modal.seatNumber]}
+        />
+      )}
       <table className='grid'>
         <tbody>
           <tr>
@@ -44,17 +65,20 @@ const ViewSeats = ({ bus, bookBus, role }) => {
                     onClick={() => handleClickAvailable(seatNumber)}
                   >
                     {seatNumber}
-                    <br />
+                     <br />
+                  <Icon> event_seat</Icon>
+                    
+                   
                   </td>
                 );
               } else {
                 return (
-                  <td className='reserved'>
-                    {role === 'admin' && seats[seatNumber].name}
-                    <br />
-
+                  <td className='reserved'
+                  onClick={() => handleClickReserved(seatNumber)}
+                  >
                     {seatNumber}
                     <br />
+                  <Icon> event_seat</Icon>
                   </td>
                 );
               }
@@ -63,6 +87,7 @@ const ViewSeats = ({ bus, bookBus, role }) => {
         </tbody>
       </table>
     </div>
+    </Fragment>
   );
 };
 

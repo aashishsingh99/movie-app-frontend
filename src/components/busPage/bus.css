@@ -1,18 +1,17 @@
 
 .tableContainer {
-  width: 450px;
+  width: 360px;
   margin: auto;
 }
 
 .grid td {
-  width: 100px;
-  height: 150px;
-  padding-bottom: 50px ;
-  padding-top: 10px ;
-  border: 2px solid orange;
+  padding-top: 0%;
+  width: 56px;
+  height: 50px;
+  border: 2px solid rgb(22, 22, 22);
   text-align: center;
-  float: right;
-  margin: 5px;
+  float: left;
+  margin: 3px;
 }
 
 .grid td:hover {
@@ -28,17 +27,17 @@
 }
 
 .reserved {
-  background: rgb(253, 172, 22);
+  background: rgb(192, 4, 4);
   color: #fff;
   display: inline-block;
 }
 
 .reserved::after {
-  content: 'RESERVED'
+  
 }
 
 .available::after {
-  content: 'AVAILABLE'
+
 }
 
 

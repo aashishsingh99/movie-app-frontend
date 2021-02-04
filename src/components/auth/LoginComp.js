@@ -11,8 +11,9 @@ const Login = ({  isAuthenticated,formData,onChange,onSubmit }) => {
 
   return (
     <Fragment>
-      <div className='form-border'>
-        <h1 className='large text-primary'>Log In</h1>
+      <center>
+      <div className='card-panel1 form-border'>
+       <h1 className='large text-primary'>Log In</h1>
 
         <form className='form' onSubmit={onSubmit}>
           <div className='form-group'>
@@ -37,6 +38,7 @@ const Login = ({  isAuthenticated,formData,onChange,onSubmit }) => {
           <input type='submit' className='btn btn-primary' value='login' />
         </form>
       </div>
+      </center>
     </Fragment>
   );
 };

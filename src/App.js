@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // import setAuthToken from './utils/setAuthToken';
 import store from './store';
 import Alert from './containers/layout/Alert';
-import Navbar from './containers/layout/Navbar';
+import Navbar from './containers/layout/NavbarContainer';
 import Landing from './containers/layout/Landing';
 import Login from './containers/auth/Login';
 import Register from './containers/auth/Register';
@@ -50,7 +50,7 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/buses' component={ViewCurBuses} />
-              <PrivateRoute exact path='/findBus' component={FindBus} />
+              {/* <PrivateRoute exact path='/findBus' component={FindBus} /> */}
               <PrivateRoute exact path='/addBus' component={AddBus} />
               <PrivateRoute exact path="/buses/:id" component={BusPage} />
             </Switch>

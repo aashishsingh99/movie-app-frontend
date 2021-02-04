@@ -14,7 +14,7 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
     reachTime: '',
     date: '',
     redirectToNewPage: false,
-    fare:0,
+    fare: null,
   });
 
   if (formData.redirectToNewPage) {
@@ -22,10 +22,14 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
   }
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
+  const onChangeDate = e => {
+    console.log(e.date)
+    setFormData({ ...formData, date: e.val.date});
+    console.log(formData.date)
+  };
   const onSubmit = async e => {
     e.preventDefault();
-    
+
     await addBus(formData);
     console.log('hi');
     // return <Redirect to='/dashboard' />;
@@ -35,7 +39,12 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
   };
   if (role === 'admin') {
     return (
-      <AddBusComp formData={formData} onChange={onChange} onSubmit={onSubmit}>
+      <AddBusComp
+        formData={formData}
+        onChange={onChange}
+        onChangeDate={onChangeDate}
+        onSubmit={onSubmit}
+      >
         {' '}
       </AddBusComp>
     );

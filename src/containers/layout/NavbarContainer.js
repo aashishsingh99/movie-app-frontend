@@ -3,48 +3,45 @@ import { Link } from 'react-router-dom';
 import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Icon from 'react-materialize/lib/Icon';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
-    <ul>
-     
-      <li>
+    <div>
         <Link to='/register'>Register</Link>
-      </li>
-      <li>
+    
         <Link to='/login'>Login</Link>
-      </li>
-    </ul>
+     </div>
   );
   const UserLinks = (
-    <ul>
-      <li>
+    
         <a onClick={logout} href='#!'>
-          <i className='fas fa-sign-out-alt'></i>
-          {'  '}
+       
           <span className='hide-sm'>Logout</span>
         </a>
-      </li>
-    </ul>
+    
   );
   return (
-    <nav className='navbar bg-dark' id="nav-head">
-      <h1>
+    <nav className='navbar bg-primary' id="nav-head">
+      
         <Link to='/'>
-          <i></i> Bus Booking
+          Home
         </Link>
-      </h1>
+        
+         <div className="busName"> Bus Booking </div>
+      
+     
       {!loading && (
         <Fragment>{isAuthenticated ? UserLinks : guestLinks}</Fragment>
       )}
     </nav>
   );
 };
-Navbar.propTypes = {
+NavbarComponent.propTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 const mapStateToProps = state => ({
   auth: state.auth,
 });
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, { logout })(NavbarComponent);

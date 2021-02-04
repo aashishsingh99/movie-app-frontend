@@ -36,7 +36,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <div className="form-border">
+      <center>
+      <div className="card-panel2 form-border">
       <h1 className='large text-primary'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Create Your Account
@@ -97,6 +98,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         Already have an account? <Link to='/login'>Sign In</Link>
       </p>
       </div>
+      </center>
     </Fragment>
   );
 };
