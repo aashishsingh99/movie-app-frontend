@@ -21,7 +21,7 @@ import FindBus from './containers/bus/FindBus';
 import AddBus from './containers/bus/AddBus';
 import BusPage from './containers/busPage/BusPage';
 if (localStorage.token) {
-  console.log('heyyyyBrother');
+  
   setAuthToken(localStorage.token);
 }
 const App = () => {
@@ -50,7 +50,7 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute exact path='/buses' component={ViewCurBuses} />
-              {/* <PrivateRoute exact path='/findBus' component={FindBus} /> */}
+              
               <PrivateRoute exact path='/addBus' component={AddBus} />
               <PrivateRoute exact path="/buses/:id" component={BusPage} />
             </Switch>

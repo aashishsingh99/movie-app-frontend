@@ -5,25 +5,7 @@ import { Row, Col, Card, Icon, CardTitle } from 'react-materialize';
 import img from '../../img/black-white-bus.png'
 const BusItem = ({ bus }) => {
   return (
-    // <div className='profile bg-dark '>
-    //   {/* <img src={'../../img/showcase.jpg'} alt='' className='round-img' /> */}
-    //   <div>
-    //     {' '}
-    //     <h2>  {bus.name}</h2>{' '}
-    //   </div>
-    //   <div className='col-2'>
-    //     Start Time - {bus.startTime}
-    //     <br />
-    //     Reach Time - {bus.reachTime}
-    //     <br />
-    //     Fare - {bus.fare}
-    //   </div>
-    //   <div className='col-4'>
-    // <Link to={`/buses/${bus._id}`} className='btn btn-primary'>
-    //   View Bus
-    // </Link>
-    //   </div>
-    // </div>
+    
 
     <Col l={4} m={6} s={12}>
       <Card

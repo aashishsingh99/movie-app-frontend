@@ -19,7 +19,7 @@ const BusPage = ({
   resetBus,
 }) => {
   useEffect(() => {
-    console.log('hi');
+    
     getBusById(match.params.id);
   }, [match.params.id]);
   return <BusPageComp bus={bus} auth={auth} bookBus={bookBus} resetBus={resetBus}/>;
