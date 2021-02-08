@@ -2,11 +2,11 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
-import { findBus } from '../../actions/bus';
+import { findMovie } from '../../actions/movie';
 import NotAuth from '../../components/errors/NotAuth';
 import PropTypes from 'prop-types';
-import FindBusComp from '../../components/bus/FindBusComp';
-const FindBus = ({ auth: { role }, findBus }) => {
+import FindMovieComp from '../../components/movie/FindMovieComp';
+const FindMovie = ({ auth: { role }, findMovie }) => {
   const [formData, setFormData] = useState({
     source: '',
     destination: '',
@@ -14,30 +14,30 @@ const FindBus = ({ auth: { role }, findBus }) => {
     redirectToNewPage: false,
   });
 
-  const { source, destination, date } = formData;
+  const { name, date } = formData;
   if (formData.redirectToNewPage) {
-    return <Redirect to='/buses' />;
+    return <Redirect to='/movies' />;
   }
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = async e => {
     e.preventDefault();
-    findBus(formData);
+    findMovie(formData);
     setFormData({ ...formData, redirectToNewPage: true });
   };
   if (role === 'user') {
     return (
-      <FindBusComp formData={formData} onChange={onChange} onSubmit={onSubmit}>
+      <FindMovieComp formData={formData} onChange={onChange} onSubmit={onSubmit}>
         {' '}
-      </FindBusComp>
+      </FindMovieComp>
     );
   } else {
     return <NotAuth allowed='User' />;
   }
 };
-FindBus.propTypes = {
-  findBus: PropTypes.func.isRequired,
+FindMovie.propTypes = {
+  findMovie: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
@@ -45,4 +45,4 @@ const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { findBus })(FindBus);
+export default connect(mapStateToProps, { findMovie })(FindMovie);

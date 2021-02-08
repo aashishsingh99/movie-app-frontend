@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Row, Col, Icon } from 'react-materialize';
-const FindBus = ({ formData, onChange, onSubmit }) => {
-  const { source, destination, date } = formData;
+const FindMovie = ({ formData, onChange, onSubmit }) => {
+  const { name, date } = formData;
 
   return (
     <Fragment>
@@ -18,28 +18,14 @@ const FindBus = ({ formData, onChange, onSubmit }) => {
                   <input
                     className='center-align'
                     type='text'
-                    placeholder='Source'
-                    name='source'
-                    value={source}
+                    placeholder='Movie Name'
+                    name='name'
+                    value={name}
                     onChange={onChange}
                   />
                 </div>
               </Col>
-              <Col l={1}>
-                <Icon>arrow_forward</Icon>
-              </Col>
-              <Col l={2}>
-                <div className='form-group'>
-                  <input
-                    className='center-align'
-                    type='text'
-                    placeholder='Destination'
-                    name='destination'
-                    value={destination}
-                    onChange={onChange}
-                  />
-                </div>
-              </Col>
+              
               <Col l={1}>
                 <Icon>date_range</Icon>
               </Col>
@@ -55,7 +41,7 @@ const FindBus = ({ formData, onChange, onSubmit }) => {
                 </div>
               </Col>
               <Col l={2}>
-          <input type='submit' className='btn btn-primary' value='FindBus' />
+          <input type='submit' className='btn btn-primary' value='FindMovie' />
 
               </Col>
             </Row>
@@ -67,10 +53,10 @@ const FindBus = ({ formData, onChange, onSubmit }) => {
   );
 };
 
-FindBus.propTypes = {
+FindMovie.propTypes = {
   formData: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default FindBus;
+export default FindMovie;
