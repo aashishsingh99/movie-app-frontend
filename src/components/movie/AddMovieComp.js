@@ -4,45 +4,22 @@ import PropTypes from 'prop-types';
 import { Row, Col, Icon } from 'react-materialize';
 import Date from '../utils/Date';
 
-const AddBus = ({ formData, onChange, onChangeDate, onSubmit }) => {
-  const { source, destination, startTime, reachTime, date, fare } = formData;
+const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
+  const { startTime, reachTime, date, fare } = formData;
 
   return (
     <Fragment>
       <center>
         <div className='card-panel3'>
-          <h1 className='large text-primary'>Add Bus</h1>
+          <h1 className='large text-primary'>Add Movie</h1>
 
           <form className='form center-align' onSubmit={onSubmit}>
             <center>
               <Row>
                 <Col l={1}></Col>
-                <Col>
-                  <div className='form-group'>
-                    <Icon> location_on </Icon>
-                    <input
-                      type='text'
-                      placeholder='Source'
-                      name='source'
-                      value={source}
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
+                
 
-                <Col>
-                  <div className='form-group'>
-                    <Icon> location_on </Icon>
-
-                    <input
-                      type='text'
-                      placeholder='Destination'
-                      name='destination'
-                      value={destination}
-                      onChange={onChange}
-                    />
-                  </div>
-                </Col>
+                
               </Row>
               <Row className='center-align'>
                 <Col l={1}></Col>
@@ -63,7 +40,7 @@ const AddBus = ({ formData, onChange, onChangeDate, onSubmit }) => {
                     <Icon> timer_off</Icon>
                     <input
                       type='text'
-                      placeholder='Reach Time'
+                      placeholder='End Time'
                       name='reachTime'
                       value={reachTime}
                       onChange={onChange}
@@ -85,13 +62,13 @@ const AddBus = ({ formData, onChange, onChangeDate, onSubmit }) => {
                 <Icon> attach_money</Icon>
                 <input
                   type='text'
-                  placeholder='Price per seat'
+                  placeholder='Price per ticket'
                   name='fare'
                   value={fare}
                   onChange={onChange}
                 />
               </div>
-              <input type='submit' className='btn btn-primary' value='AddBus' />
+              <input type='submit' className='btn btn-primary' value='AddMovie' />
             </center>
           </form>
         </div>
@@ -100,10 +77,10 @@ const AddBus = ({ formData, onChange, onChangeDate, onSubmit }) => {
   );
 };
 
-AddBus.propTypes = {
+AddMovie.propTypes = {
   formData: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default AddBus;
+export default AddMovie;

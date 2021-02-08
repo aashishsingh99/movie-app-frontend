@@ -6,7 +6,7 @@ import { Row, Col, Card, Icon, Carousel, Button } from 'react-materialize';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import InlineFindForm from './InlineFindForm';
-import FindMovie from '../../containers/bus/FindMovie';
+import FindMovie from '../../containers/movie/FindMovie';
 const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) => {
   useEffect(() => {
     getAllMovies();

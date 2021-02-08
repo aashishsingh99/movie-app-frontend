@@ -28,7 +28,7 @@ const NavbarComponent = ({ auth: { isAuthenticated, loading }, logout }) => {
           Home
         </Link>
         
-         <div className="busName"> Bus Booking </div>
+         <div className="busName"> Movie Booking </div>
       
      
       {!loading && (

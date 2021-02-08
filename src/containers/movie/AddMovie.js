@@ -2,14 +2,12 @@ import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
-import { addBus } from '../../actions/bus';
+import { addMovie } from '../../actions/movie';
 import NotAuth from '../../components/errors/NotAuth';
 import PropTypes from 'prop-types';
-import AddBusComp from '../../components/bus/AddBusComp';
-const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
+import AddMovieComp from '../../components/movie/AddMovieComp';
+const AddMovie = ({ auth: { role }, addMovie, movie: { error } }) => {
   const [formData, setFormData] = useState({
-    source: '',
-    destination: '',
     startTime: '',
     reachTime: '',
     date: '',
@@ -18,7 +16,7 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
   });
 
   if (formData.redirectToNewPage) {
-    return <Redirect to='/buses' />;
+    return <Redirect to='/movies' />;
   }
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,7 +28,7 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    await addBus(formData);
+    await addMovie(formData);
     
     
     setFormData({ ...formData, redirectToNewPage: true });
@@ -39,27 +37,27 @@ const AddBus = ({ auth: { role }, addBus, bus: { error } }) => {
   };
   if (role === 'admin') {
     return (
-      <AddBusComp
+      <AddMovieComp
         formData={formData}
         onChange={onChange}
         onChangeDate={onChangeDate}
         onSubmit={onSubmit}
       >
         {' '}
-      </AddBusComp>
+      </AddMovieComp>
     );
   } else {
     return <NotAuth allowed='Admin' />;
   }
 };
-AddBus.propTypes = {
-  addBus: PropTypes.func.isRequired,
+AddMovie.propTypes = {
+  addMovie: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  bus: state.bus,
+  movie: state.movie,
 });
 
-export default connect(mapStateToProps, { addBus })(AddBus);
+export default connect(mapStateToProps, { addMovie })(AddMovie);
