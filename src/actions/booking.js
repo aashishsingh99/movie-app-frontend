@@ -12,7 +12,7 @@ import {
 
 
 // Book the Bus
-export const bookMovie = (seatNumber,busId) => async dispatch => {
+export const bookMovie = (seatNumber,movieId) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',

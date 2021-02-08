@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Collapsible, CollapsibleItem, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import BusPageComp from './BusPageComp';
-const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
+import MoviePageComp from './MoviePageComp';
+const MoviePageNav = ({ movie, seats, id, role ,resetMovie}) => {
   const [navData, setNavData] = useState({
     availableSeats: 0,
   });
@@ -33,11 +33,11 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
             <div>
               Available Seats - {navData.availableSeats}
               <br />
-              Start Time - {bus.startTime}
+              Start Time - {movie.startTime}
               <br />
-              Reach Time - {bus.reachTime}
+              End Time - {movie.reachTime}
               <br />
-              Price - {bus.fare}
+              Price - {movie.fare}
             </div>
           </CollapsibleItem>
           <CollapsibleItem
@@ -46,11 +46,11 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
             icon={<Icon>place</Icon>}
             node='div'
           >
-            View All Buses... 
+            View All Movies... 
             <br/>
-            <Link to='/buses'>
+            <Link to='/movies'>
               
-              <button> Buses </button>
+              <button> Movies </button>
             </Link>
           </CollapsibleItem>
           
@@ -61,7 +61,7 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
                 node='div'
               >
                 Once reset all the bookings will be cancelled <br /> 
-                <button onClick={()=>{resetBus(bus._id)}}> Reset </button>
+                <button onClick={()=>{resetMovie(movie._id)}}> Reset </button>
               </CollapsibleItem>
             
         </Collapsible>
@@ -79,11 +79,11 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
               <div>
                 Available Seats - {navData.availableSeats}
                 <br />
-                Start Time - {bus.startTime}
+                Start Time - {movie.startTime}
                 <br />
-                Reach Time - {bus.reachTime}
+                End Time - {movie.reachTime}
                 <br />
-                Price - {bus.fare}
+                Price - {movie.fare}
               </div>
             </CollapsibleItem>
             <CollapsibleItem
@@ -92,11 +92,11 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
               icon={<Icon>place</Icon>}
               node='div'
             >
-              View All The buses... 
+              View All The movies... 
 
               <Link to='/dashboard'>
                 
-                <button> Find More Buses </button>
+                <button> Find More Movies </button>
               </Link>
             </CollapsibleItem>
             {seats.includes(id) && (
@@ -119,6 +119,6 @@ const BusPageNav = ({ bus, seats, id, role ,resetBus}) => {
   );
 };
 
-BusPageNav.propTypes = {};
+MoviePageNav.propTypes = {};
 
-export default BusPageNav;
+export default MoviePageNav;
