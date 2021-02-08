@@ -102,8 +102,8 @@ h2.banner {
   bottom: 0;
   left: 0;
   right: 0;
-  background: url('./img/bus-horizontal.png') no-repeat center center/cover;
-  opacity: 0.4;
+  /* background: url('https://lumiere-a.akamaihd.net/v1/images/r_blackpanther_nowonhero_e6434d76.jpeg?region=0,0,2048,832') no-repeat center center/cover; */
+  opacity: 0.5;
     width: 100%;
     height: 100%;
 }

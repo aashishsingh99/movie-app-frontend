@@ -45,32 +45,32 @@ const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) =>
               }}
               center
             >
-              <div className='myDiv center-align card-panel hoverable'>
-                <div className='bg2 '></div>
+              <div className ='myDiv center-align card-panel hoverable'>
+                <div style={{"background":"url(https://lumiere-a.akamaihd.net/v1/images/r_blackpanther_nowonhero_e6434d76.jpeg?region=0,0,2048,832) no-repeat center center/cover"}} className='bg2 '></div>
                 <div className=' carasouel-container'>
-                  <h3>{movies[0].name}</h3>
+                  {/* <h3>{movies[0].name}</h3> */}
                   <Link to={`/movies/${movies[0]._id}`}>
-                    <Button> View Movie</Button>
+                    <Button> Book Now</Button>
                   </Link>
                 </div>
               </div>
               <div className='myDiv card-panel hoverable'>
-                <div className='bg2'></div>
+                <div style={{"background":"url(https://i.ebayimg.com/00/s/NjkzWDE1MDA=/z/j7oAAOSwckdefMym/$_57.JPG?set_id=8800005007) no-repeat center center/cover"}} className='bg2'></div>
                 <div className='carasouel-container '>
-                  <h3>{movies[1].name}</h3>
+                  {/* <h3>{movies[1].name}</h3> */}
                   <Link to={`/movies/${movies[1]._id}`}>
-                    <Button> View Movie</Button>
+                    <Button> Book Now</Button>
                   </Link>
                 </div>
               </div>
               <div className='myDiv card-panel hoverable'>
-                <div className='bg2'></div>
+                <div style={{"background":"url(https://collider.com/wp-content/uploads/inception_movie_poster_banner_01.jpg) no-repeat center center/cover"}} className='bg2'></div>
                 <div className='carasouel-container'>
                   <div>
-                    <h3>{movies[2].name}</h3>
+                    {/* <h3>{movies[2].name}</h3> */}
                   </div>
                   <Link to={`/movies/${movies[2]._id}`}>
-                    <Button> View Movie</Button>
+                    <Button> Book Now</Button>
                   </Link>
                 </div>
               </div>
@@ -85,13 +85,13 @@ const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) =>
         <Row>
           <Col l={4}></Col>
           <Col l={4} m={6} s={12} className='center_card'>
-            <Card
+            <Card 
               actions={[
                 <Link className='adminLinks' to='/movies'>
                   Your Fleet
                 </Link>,
                 <Link className='adminLinks' to='/addMovie'>
-                  Add a Movie
+                  Add New
                 </Link>,
               ]}
               className='white darken-4'

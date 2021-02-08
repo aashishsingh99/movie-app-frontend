@@ -42,7 +42,7 @@ const MoviePageNav = ({ movie, seats, id, role ,resetMovie}) => {
           </CollapsibleItem>
           <CollapsibleItem
             expanded={false}
-            header='All Buses'
+            header='All Movies'
             icon={<Icon>place</Icon>}
             node='div'
           >
@@ -88,7 +88,7 @@ const MoviePageNav = ({ movie, seats, id, role ,resetMovie}) => {
             </CollapsibleItem>
             <CollapsibleItem
               expanded={false}
-              header='Find More Buses'
+              header='Find More Movies'
               icon={<Icon>place</Icon>}
               node='div'
             >
