@@ -4,10 +4,10 @@ import './bus.css';
 import ModalBooking from './ModalBooking';
 import ModalAdmin from './ModalAdmin'
 import {Col,Icon} from 'react-materialize'
-const ViewSeats = ({ bus, bookBus, role }) => {
+const ViewSeats = ({ movie, bookMovie, role }) => {
   // Just for now show which are booked and which are not booked
-  const busId = bus._id;
-  const seats = bus.seats;
+  const movieId = movie._id;
+  const seats = movie.seats;
   const [modal, setModal] = useState({ isModalOpen: false, seatNumber: 0 });
 
   const toggleModal = () => {
@@ -16,7 +16,7 @@ const ViewSeats = ({ bus, bookBus, role }) => {
 
   const handleClickAvailable = seatNumber => {
     if (role === 'user') {
-      // book the bus
+      // book the movie
       console.log('hi');
     setModal({  isModalOpen: !modal.isModalOpen,seatNumber: seatNumber });
       
@@ -35,22 +35,22 @@ const ViewSeats = ({ bus, bookBus, role }) => {
       <div className="card horizantal busPage">
        
     <h1 className='busName' >  <Icon> directions_bus
-</Icon><span>{"  "}</span>{bus.name} </h1>
+</Icon><span>{"  "}</span>{movie.name} </h1>
     </div>
     <div className='tableContainer'>
       {modal.isModalOpen && role==='user' && (
         <ModalBooking
           onRequestClose={toggleModal}
           seatNumber={modal.seatNumber}
-          bus={bus}
-          bookBus={bookBus}
+          movie={movie}
+          bookMovie={bookMovie}
         />
       )}
       {modal.isModalOpen && role==='admin' && (
         <ModalAdmin
           onRequestClose={toggleModal}
           seatNumber={modal.seatNumber}
-          bus={bus}
+          movie={movie}
           details={seats[modal.seatNumber]}
         />
       )}

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {Row,Col} from 'react-materialize'
 import ViewSeats from './ViewSeats';
-import BusPageNav from './BusPageNav'
+import MoviePageNav from './MoviePageNav'
 import './bus.css';
-const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
+const MoviePageComp = ({ movie, auth: { role, user }, bookMovie, resetMovie }) => {
   
   return (
     <Fragment >
       
-      {bus === null ? (
+      {movie === null ? (
         <h4> Loading... </h4>
       ) : (
         <Fragment>
@@ -18,10 +18,10 @@ const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
         <div className="busPageContainer">
           <Row>
             <Col l={4}>
-          <ViewSeats bus={bus} bookBus={bookBus} role={role}/>
+          <ViewSeats movie={movie} bookMovie={bookMovie} role={role}/>
           </Col>
           <Col l={8}>
-          <BusPageNav id={user._id}seats={bus.seats} bus={bus}role={role} resetBus={resetBus} /> 
+          <MoviePageNav id={user._id}seats={movie.seats} movie={movie}role={role} resetMovie={resetMovie} /> 
           </Col>
           </Row>
           </div>
@@ -31,12 +31,12 @@ const BusPageComp = ({ bus, auth: { role, user }, bookBus, resetBus }) => {
   );
 };
 
-BusPageComp.propTypes = {
-  bus: PropTypes.object.isRequired,
+MoviePageComp.propTypes = {
+  movie: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  bookBus: PropTypes.func.isRequired,
-  resetBus: PropTypes.func.isRequired,
+  bookMovie: PropTypes.func.isRequired,
+  resetMovie: PropTypes.func.isRequired,
   
 };
 
-export default BusPageComp;
+export default MoviePageComp;
