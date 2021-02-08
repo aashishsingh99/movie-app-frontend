@@ -8,17 +8,17 @@ import Landing from './containers/layout/Landing';
 import Login from './containers/auth/Login';
 import Register from './containers/auth/Register';
 import PrivateRoute from './containers/routing/PrivateRoute';
-import './components/busPage/modal.css'
+import './components/moviePage/modal.css'
 import Dashboard from './containers/dashboard/Dashboard';
 
 import './App.css';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import { LOGOUT } from './actions/types';
-import ViewCurBuses from './containers/bus/ViewCurBuses';
-import FindBus from './containers/bus/FindBus';
-import AddBus from './containers/bus/AddBus';
-import BusPage from './containers/busPage/BusPage';
+import ViewCurMovies from './containers/movie/ViewCurMovies';
+import FindMovie from './containers/movie/FindMovie';
+import AddMovie from './containers/movie/AddMovie';
+import MoviePage from './containers/moviePage/MoviePage';
 if (localStorage.token) {
   
   setAuthToken(localStorage.token);
@@ -48,10 +48,10 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
-              <PrivateRoute exact path='/movies' component={ViewCurBuses} />
+              <PrivateRoute exact path='/movies' component={ViewCurMovies} />
               
-              <PrivateRoute exact path='/addMovie' component={AddBus} />
-              <PrivateRoute exact path="/movies/:id" component={BusPage} />
+              <PrivateRoute exact path='/addMovie' component={AddMovie} />
+              <PrivateRoute exact path="/movies/:id" component={MoviePage} />
             </Switch>
           </section>
         </Fragment>
