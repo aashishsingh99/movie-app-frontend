@@ -16,7 +16,7 @@ const MovieItem = ({ movie }) => {
         ]}
         closeIcon={<Icon>close</Icon>}
         header={
-          <CardTitle image={img} className='text-dark lead'> {movie.name}{' '}<br/>{'Movie'}</CardTitle>
+          <CardTitle image={movie.poster} className='text-dark lead'> {movie.name}{' '}<br/>{''}</CardTitle>
         }
         horizontal
         revealIcon={<Icon>more_vert</Icon>}

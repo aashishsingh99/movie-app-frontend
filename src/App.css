@@ -428,6 +428,8 @@ button {
 
 /* Landing Page */
 .landing {
+  background: url(https://thumbs.dreamstime.com/b/cinema-hall-27444008.jpg) no-repeat center center/cover;
+
   position: relative;
   height: 100vh;
 }

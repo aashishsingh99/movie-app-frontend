@@ -24,8 +24,9 @@ const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) =>
   if (role === 'user') {
     return (
       <Fragment>
-        <div>
+        <div style={{"display":"flex"}}>
           <FindMovie></FindMovie>
+          <button onClick={click}>All Movies</button>
         </div>
         {movies.length > 0 && (
           <div>
@@ -88,7 +89,7 @@ const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) =>
             <Card 
               actions={[
                 <Link className='adminLinks' to='/movies'>
-                  Your Fleet
+                  All Movies
                 </Link>,
                 <Link className='adminLinks' to='/addMovie'>
                   Add New

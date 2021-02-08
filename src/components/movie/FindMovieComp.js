@@ -41,7 +41,7 @@ const FindMovie = ({ formData, onChange, onSubmit }) => {
                 </div>
               </Col>
               <Col l={2}>
-          <input type='submit' className='btn btn-primary' value='FindMovie' />
+          <input style={{"border-radius":"10%"}} type='submit' className='btn btn-primary' value='Find' />
 
               </Col>
             </Row>

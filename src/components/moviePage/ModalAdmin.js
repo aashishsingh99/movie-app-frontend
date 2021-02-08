@@ -26,8 +26,8 @@ const Modal = ({ onRequestClose,movie,seatNumber,details }) => {
 		<div className="modal__backdrop">
 			<div className="modal__container">
 				<h3 className="modal__title">{movie.name}</h3>
-				<h4 className='modal__content'> Coustmer Name - { details.name}</h4>
-				<h4 className='modal__content'> Coustmer Email - { details.email}</h4>
+				<h4 className='modal__content'> Customer Name - { details.name}</h4>
+				<h4 className='modal__content'> Customer Email - { details.email}</h4>
 				<h4 className='modal__content'> Seat Number - { seatNumber}</h4>
 				
                 

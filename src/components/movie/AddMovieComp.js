@@ -131,7 +131,7 @@ import { Row, Col, Icon } from 'react-materialize';
 import Date from '../utils/Date';
 
 const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
-  const { name, startTime, reachTime, date, fare } = formData;
+  const { name, startTime, reachTime, date, poster, fare } = formData;
 
   return (
     <Fragment>
@@ -166,15 +166,42 @@ const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
                     <Icon> movie</Icon>
                     <input
                       type='text'
-                      placeholder='Movie Name'
-                      name='name'
-                      value={name}
+                      placeholder='Movie Poster'
+                      name='poster'
+                      value={poster}
                       onChange={onChange}
                     />
                   </div>
                 </Col>
               </Row>
               <Row className='center-align'>
+              <Col l={1}></Col>
+              <Col>
+                  <div className='form-group'>
+                  <Icon> timer</Icon>
+                    <input
+                      type='text'
+                      placeholder='Movie Start Time'
+                      name='startTime'
+                      value={startTime}
+                      onChange={onChange}
+                    />
+                  </div>
+                </Col>
+                <Col>
+                  <div className='form-group'>
+                  <Icon> timer_off</Icon>
+                    <input
+                      type='text'
+                      placeholder='Movie End Time'
+                      name='reachTime'
+                      value={reachTime}
+                      onChange={onChange}
+                    />
+                    </div>
+                </Col>
+              </Row>
+              {/* <Row className='center-align'>
                 {/* <Col l={1}></Col>
                 <Col>
                   <div className='form-group'>
@@ -188,7 +215,7 @@ const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
                     />
                   </div>
                 </Col> */}
-                <Col>
+                {/* <Col>
                   <div className='form-group'>
                     <Icon> timer</Icon>
                     <input
@@ -211,8 +238,8 @@ const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
                       onChange={onChange}
                     />
                   </div>
-                </Col>
-              </Row>
+                </Col> */}
+              {/* </Row> */} 
               <div className='form-group'>
                 <Icon> date_range</Icon>
                 <input
