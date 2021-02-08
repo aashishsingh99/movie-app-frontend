@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import AddMovieComp from '../../components/movie/AddMovieComp';
 const AddMovie = ({ auth: { role }, addMovie, movie: { error } }) => {
   const [formData, setFormData] = useState({
+    name:'',
     startTime: '',
     reachTime: '',
     date: '',

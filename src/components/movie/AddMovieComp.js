@@ -5,7 +5,7 @@ import { Row, Col, Icon } from 'react-materialize';
 import Date from '../utils/Date';
 
 const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
-  const { startTime, reachTime, date, fare } = formData;
+  const { name, startTime, reachTime, date, fare } = formData;
 
   return (
     <Fragment>
@@ -23,6 +23,18 @@ const AddMovie = ({ formData, onChange, onChangeDate, onSubmit }) => {
               </Row>
               <Row className='center-align'>
                 <Col l={1}></Col>
+                <Col>
+                  <div className='form-group'>
+                    <Icon> movie</Icon>
+                    <input
+                      type='text'
+                      placeholder='Movie Name'
+                      name='name'
+                      value={name}
+                      onChange={onChange}
+                    />
+                  </div>
+                </Col>
                 <Col>
                   <div className='form-group'>
                     <Icon> timer</Icon>
