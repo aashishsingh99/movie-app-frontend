@@ -7,52 +7,52 @@ import {
   GET_ALL_MOVIES_ERROR,
   GET_MOVIE_BY_ID,
   GET_MOVIE_BY_ID_ERROR,
-  BOOKMOVIE,
+  BOOK_MOVIE,
   BOOK_MOVIE_ERROR,
-  RESETMOVIES,
+  RESET_MOVIE,
   RESET_MOVIE_ERROR,
 } from '../actions/types';
 
 const initialState = {
   loading: true,
   movies: [],
-  bus: null,
+  movie: null,
   error: {},
 };
 
-function busReducer(state = initialState, action) {
+function movieReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_ALL_BUSES:
-    case ADD_BUS:
-    case FIND_BUS:
+    case GET_ALL_MOVIES:
+    case ADD_MOVIE:
+    case FIND_MOVIE:
       return {
         ...state,
         loading: false,
-        buses: payload,
-        bus: null,
+        movies: payload,
+        movie: null,
       };
-    case RESET_BUS:
-    case BOOK_BUS:
-    case GET_BUS_BY_ID:
+    case RESET_MOVIE:
+    case BOOK_MOVIE:
+    case GET_MOVIE_BY_ID:
       return {
         ...state,
         loading: false,
-        bus: payload,
+        movie: payload,
       };
-    case RESET_BUS_ERROR:
-    case GET_ALL_BUSES_ERROR:
-    case ADD_BUS_ERROR:
-    case FIND_BUS_ERROR:
-    case GET_BUS_BY_ID_ERROR:
-    case BOOK_BUS_ERROR:
+    case RESET_MOVIE_ERROR:
+    case GET_ALL_MOVIES_ERROR:
+    case ADD_MOVIE_ERROR:
+    case FIND_MOVIE_ERROR:
+    case GET_MOVIE_BY_ID_ERROR:
+    case BOOK_MOVIE_ERROR:
       return {
         ...state,
         loading: false,
         error: payload,
-        buses: [],
-        bus: null,
+        movies: [],
+        movie: null,
       };
 
     default:
@@ -60,4 +60,4 @@ function busReducer(state = initialState, action) {
   }
 }
 
-export default busReducer;
+export default movieReducer;
