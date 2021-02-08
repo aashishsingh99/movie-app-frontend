@@ -3,59 +3,59 @@ import axios from 'axios';
 
 // import { setAlert } from './alert';
 import {
-  BOOK_BUS,
-  BOOK_BUS_ERROR,
-  RESET_BUS,
-  RESET_BUS_ERROR,
+  BOOK_MOVIE,
+  BOOK_MOVIE_ERROR,
+  RESET_MOVIE,
+  RESET_MOVIE_ERROR,
 } from './types';
 
 
 
 // Book the Bus
-export const bookBus = (seatNumber,busId) => async dispatch => {
+export const bookMovie = (seatNumber,busId) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
   try {
-    const body = { seatNumber: seatNumber,busId:busId };
+    const body = { seatNumber: seatNumber,movieId:movieId };
     console.log(body)
-    console.log('bookBus action');
-    const res = await axios.post('/api/bus/bookBus',body,config);
+    console.log('bookMovie action');
+    const res = await axios.post('/api/movie/bookMovie',body,config);
     // const res = { data: 'hi' };
     console.log(res.data);
     await dispatch({
-      type: BOOK_BUS,
+      type: BOOK_MOVIE,
       payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: BOOK_BUS_ERROR,
+      type: BOOK_MOVIE_ERROR,
     });
   }
 };
 // Reset Bus
-export const resetBus = (busId) => async dispatch => {
+export const resetMovie = (movieId) => async dispatch => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
       },
     };
     try {
-      const body = {busId:busId };
+      const body = {movieId:movieId };
       console.log(body)
-      console.log('resetBus action');
-      const res = await axios.post('/api/bus/resetBus',body,config);
+      console.log('resetMovie action');
+      const res = await axios.post('/api/movie/resetMovie',body,config);
       // const res = { data: 'hi' };
       console.log(res.data);
      dispatch({
-        type: RESET_BUS,
+        type: RESET_MOVIE,
         payload: res.data,
       });
     } catch (err) {
       dispatch({
-        type: RESET_BUS_ERROR,
+        type: RESET_MOVIE_ERROR,
       });
     }
   };

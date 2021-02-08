@@ -1,88 +1,85 @@
 import axios from 'axios';
-// import setAuthToken from '../utils/setAuthToken';
-
-// import { setAlert } from './alert';
 import {
-  FIND_BUS,
-  FIND_BUS_ERROR,
-  ADD_BUS,
-  ADD_BUS_ERROR,
-  GET_ALL_BUSES,
-  GET_ALL_BUSES_ERROR,
-  GET_BUS_BY_ID,
-  GET_BUS_BY_ID_ERROR,
+  FIND_MOVIE,
+  FIND_MOVIE_ERROR,
+  ADD_MOVIE,
+  ADD_MOVIE_ERROR,
+  GET_ALL_MOVIES,
+  GET_ALL_MOVIES_ERROR,
+  GET_MOVIE_BY_ID,
+  GET_MOVIE_BY_ID_ERROR,
 } from './types';
 
 // find bus
-export const findBus = formData => async dispatch => {
+export const findMovie = formData => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
   try {
-    console.log('findBus action',formData.date);
-    const res = await axios.post('api/bus/findBus', formData, config);
+    console.log('findMovie action',formData.date);
+    const res = await axios.post('api/movie/findMovie', formData, config);
     // const res = { data: 'hi' };
 
     dispatch({
-      type: FIND_BUS,
+      type: FIND_MOVIE,
       payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: FIND_BUS_ERROR,
+      type: FIND_MOVIE_ERROR,
     });
   }
 };
 // add bus
-export const addBus = formData => async dispatch => {
+export const addMovie = formData => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
-  const name = formData.source + ' ' + formData.destination + ' ' + 'Bus';
-  formData.name = name;
+  // const name = formData.source + ' ' + formData.destination + ' ' + 'Bus';
+  // formData.name = name;
   console.log(formData.date)
   const newDate=(formData.date).toString();
   formData.date=newDate;
   console.log(newDate)
   try {
     //console.log(formData)
-    const res = await axios.post('api/bus/addBus', formData, config);
+    const res = await axios.post('api/movie/addMovie', formData, config);
     // const res = { data: 'hi' };
 
     dispatch({
-      type: ADD_BUS,
+      type: ADD_MOVIE,
       payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: ADD_BUS_ERROR,
+      type: ADD_MOVIE_ERROR,
     });
   }
 };
 // GET ALL BUSES
-export const getAllBuses = () => async dispatch => {
+export const getAllMovies = () => async dispatch => {
   try {
-    console.log('getAll buses action');
-    const res = await axios.get('api/bus/getAllBuses');
+    console.log('getAll movies action');
+    const res = await axios.get('api/movie/getAllMovies');
     // const res = { data: 'hi' };
     console.log(res.data);
     dispatch({
-      type: GET_ALL_BUSES,
+      type: GET_ALL_MOVIES,
       payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: GET_ALL_BUSES_ERROR,
+      type: GET_ALL_MOVIES_ERROR,
     });
   }
 };
 
 // GET Bus by Id
-export const getBusById = (id) => async dispatch => {
+export const getMovieById = (id) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -91,17 +88,17 @@ export const getBusById = (id) => async dispatch => {
   try {
     const body = { id: id };
     console.log(body)
-    console.log('getBusById action');
-    const res = await axios.get(`/api/bus/getBusById/${id}`);
+    console.log('getMovieById action');
+    const res = await axios.get(`/api/movie/getMovieById/${id}`);
     // const res = { data: 'hi' };
     console.log(res.data);
     dispatch({
-      type: GET_BUS_BY_ID,
+      type: GET_MOVIE_BY_ID,
       payload: res.data,
     });
   } catch (err) {
     dispatch({
-      type: GET_BUS_BY_ID_ERROR,
+      type: GET_MOVIE_BY_ID_ERROR,
     });
   }
 };
