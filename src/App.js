@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-// import setAuthToken from './utils/setAuthToken';
 import store from './store';
 import Alert from './containers/layout/Alert';
 import Navbar from './containers/layout/NavbarContainer';
@@ -49,10 +48,10 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
-              <PrivateRoute exact path='/buses' component={ViewCurBuses} />
+              <PrivateRoute exact path='/movies' component={ViewCurBuses} />
               
-              <PrivateRoute exact path='/addBus' component={AddBus} />
-              <PrivateRoute exact path="/buses/:id" component={BusPage} />
+              <PrivateRoute exact path='/addMovie' component={AddBus} />
+              <PrivateRoute exact path="/movies/:id" component={BusPage} />
             </Switch>
           </section>
         </Fragment>

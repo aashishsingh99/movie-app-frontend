@@ -1,22 +1,22 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { getAllBuses } from '../../actions/bus';
+import { getAllMovies } from '../../actions/movie';
 import { Row, Col, Card, Icon, Carousel, Button } from 'react-materialize';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 import InlineFindForm from './InlineFindForm';
-import FindBus from '../../containers/bus/FindBus';
-const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
+import FindMovie from '../../containers/bus/FindMovie';
+const Dashboard = ({ auth: { role, user }, getAllMovies, movie: { movies } }) => {
   useEffect(() => {
-    getAllBuses();
+    getAllMovies();
   }, []);
   const [redirect, setRedirect] = useState({
     redirectToNewPage: false,
   });
 
   if (redirect.redirectToNewPage) {
-    return <Redirect to='/buses' />;
+    return <Redirect to='/movies' />;
   }
   const click = () => {
     setRedirect({ ...redirect, redirectToNewPage: true });
@@ -25,11 +25,11 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
     return (
       <Fragment>
         <div>
-          <FindBus></FindBus>
+          <FindMovie></FindMovie>
         </div>
-        {buses.length > 0 && (
+        {movies.length > 0 && (
           <div>
-            <h2 className='banner'> Feautred Buses</h2>
+            <h2 className='banner'> Feautred Movies</h2>
             <Carousel
               carouselId='Carousel-2'
               options={{
@@ -48,18 +48,18 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
               <div className='myDiv center-align card-panel hoverable'>
                 <div className='bg2 '></div>
                 <div className=' carasouel-container'>
-                  <h3>{buses[0].name}</h3>
-                  <Link to={`/buses/${buses[0]._id}`}>
-                    <Button> View Bus</Button>
+                  <h3>{movies[0].name}</h3>
+                  <Link to={`/movies/${movies[0]._id}`}>
+                    <Button> View Movie</Button>
                   </Link>
                 </div>
               </div>
               <div className='myDiv card-panel hoverable'>
                 <div className='bg2'></div>
                 <div className='carasouel-container '>
-                  <h3>{buses[1].name}</h3>
-                  <Link to={`/buses/${buses[1]._id}`}>
-                    <Button> View Bus</Button>
+                  <h3>{movies[1].name}</h3>
+                  <Link to={`/movies/${movies[1]._id}`}>
+                    <Button> View Movie</Button>
                   </Link>
                 </div>
               </div>
@@ -67,10 +67,10 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
                 <div className='bg2'></div>
                 <div className='carasouel-container'>
                   <div>
-                    <h3>{buses[2].name}</h3>
+                    <h3>{movies[2].name}</h3>
                   </div>
-                  <Link to={`/buses/${buses[2]._id}`}>
-                    <Button> View Bus</Button>
+                  <Link to={`/movies/${movies[2]._id}`}>
+                    <Button> View Movie</Button>
                   </Link>
                 </div>
               </div>
@@ -87,11 +87,11 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
           <Col l={4} m={6} s={12} className='center_card'>
             <Card
               actions={[
-                <Link className='adminLinks' to='/buses'>
+                <Link className='adminLinks' to='/movies'>
                   Your Fleet
                 </Link>,
-                <Link className='adminLinks' to='/addBus'>
-                  Add a Bus
+                <Link className='adminLinks' to='/addMovie'>
+                  Add a Movie
                 </Link>,
               ]}
               className='white darken-4'
@@ -103,26 +103,14 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
               <center>
                <h1 className="busName"> <Icon>person_pin</Icon>Admin</h1>
               <br/>
-              Total Buses - {buses.length}
+              Total Movies - {movies.length}
               <br/>
               Total Bookings - {"7"}
               </center>
             </Card>
           </Col>
         </Row>
-        {/* 
-        <div>
-          <Link to='/buses'>
-            <button className='btn btn-primary' onClick={click}>
-              {' '}
-              View All Buses{' '}
-            </button>
-          </Link>
-
-          <Link to='/addBus'>
-            <button className='btn btn-primary'> Add Bus </button>
-          </Link>
-        </div> */}
+        
       </Fragment>
     );
   }
@@ -130,10 +118,10 @@ const Dashboard = ({ auth: { role, user }, getAllBuses, bus: { buses } }) => {
 
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
-  getAllBuses: PropTypes.func.isRequired,
+  getAllMovies: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
   auth: state.auth,
-  bus: state.bus,
+  movie: state.movie,
 });
-export default connect(mapStateToProps, { getAllBuses })(Dashboard);
+export default connect(mapStateToProps, { getAllMovies })(Dashboard);
